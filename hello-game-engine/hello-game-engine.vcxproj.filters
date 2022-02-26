@@ -4,6 +4,9 @@
     <Filter Include="Hello">
       <UniqueIdentifier>{79204F0D-E534-77BE-AEB6-1A1E1A8A73EF}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Hello\Events">
+      <UniqueIdentifier>{3D6A9ECF-29CD-2D74-D252-662ABE94F9F6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Hello.h" />
@@ -16,9 +19,15 @@
     <ClInclude Include="src\Hello\EntryPoint.h">
       <Filter>Hello</Filter>
     </ClInclude>
+    <ClInclude Include="src\Hello\Events\Event.h">
+      <Filter>Hello\Events</Filter>
+    </ClInclude>
     <ClInclude Include="src\Hello\Log.h">
       <Filter>Hello</Filter>
     </ClInclude>
+    <ClInclude Include="src\Hello\Events\ApplicationEvent.h" />
+    <ClInclude Include="src\Hello\Events\KeyEvent.h" />
+    <ClInclude Include="src\Hello\Events\MouseEvent.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Hello\Application.cpp">

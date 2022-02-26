@@ -2,8 +2,6 @@
 
 #include "Event.h"
 
-#include <sstream>
-
 namespace Hello {
 	class HELLO_API KeyEvent : public Event {
 

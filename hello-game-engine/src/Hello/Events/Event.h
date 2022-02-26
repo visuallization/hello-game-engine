@@ -1,9 +1,7 @@
 #pragma once
 
+#include "hopch.h"
 #include "Hello/Core.h"
-
-#include <string>
-#include <functional>
 
 namespace Hello {
 	// Events in Hello are currently blocking, meaning when an event occurs

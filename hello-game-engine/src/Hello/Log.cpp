@@ -1,3 +1,4 @@
+#include "hopch.h"
 #include "Log.h"
 
 namespace Hello {

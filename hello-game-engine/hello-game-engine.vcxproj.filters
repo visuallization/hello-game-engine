@@ -19,15 +19,22 @@
     <ClInclude Include="src\Hello\EntryPoint.h">
       <Filter>Hello</Filter>
     </ClInclude>
+    <ClInclude Include="src\Hello\Events\ApplicationEvent.h">
+      <Filter>Hello\Events</Filter>
+    </ClInclude>
     <ClInclude Include="src\Hello\Events\Event.h">
+      <Filter>Hello\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hello\Events\KeyEvent.h">
+      <Filter>Hello\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hello\Events\MouseEvent.h">
       <Filter>Hello\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Hello\Log.h">
       <Filter>Hello</Filter>
     </ClInclude>
-    <ClInclude Include="src\Hello\Events\ApplicationEvent.h" />
-    <ClInclude Include="src\Hello\Events\KeyEvent.h" />
-    <ClInclude Include="src\Hello\Events\MouseEvent.h" />
+    <ClInclude Include="src\hopch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Hello\Application.cpp">
@@ -36,5 +43,6 @@
     <ClCompile Include="src\Hello\Log.cpp">
       <Filter>Hello</Filter>
     </ClCompile>
+    <ClCompile Include="src\hopch.cpp" />
   </ItemGroup>
 </Project>

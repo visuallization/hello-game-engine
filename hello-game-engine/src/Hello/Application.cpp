@@ -1,3 +1,4 @@
+#include "hopch.h"
 #include "Application.h"
 
 #include "Hello/Events/ApplicationEvent.h"

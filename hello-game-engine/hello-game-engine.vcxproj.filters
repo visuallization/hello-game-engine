@@ -35,6 +35,10 @@
       <Filter>Hello</Filter>
     </ClInclude>
     <ClInclude Include="src\hopch.h" />
+    <ClInclude Include="src\Hello\Window.h">
+      <Filter>Hello</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Hello\Application.cpp">
@@ -44,5 +48,6 @@
       <Filter>Hello</Filter>
     </ClCompile>
     <ClCompile Include="src\hopch.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
   </ItemGroup>
 </Project>

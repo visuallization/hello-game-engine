@@ -12,6 +12,8 @@
 #include <unordered_map>
 #include <unordered_set>
 
+#include "Hello/Log.h"
+
 #ifdef HO_PLATFORM_WINDOWS
 	#include <Windows.h>
 #endif

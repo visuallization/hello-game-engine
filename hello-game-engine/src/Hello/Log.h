@@ -26,9 +26,11 @@ namespace Hello {
 #define HO_CORE_INFO(...)	::Hello::Log::GetCoreLogger()->info(__VA_ARGS__)
 #define HO_CORE_WARN(...)	::Hello::Log::GetCoreLogger()->warn(__VA_ARGS__)
 #define HO_CORE_ERROR(...)	::Hello::Log::GetCoreLogger()->error(__VA_ARGS__)
+#define HO_CORE_CRITICAL(...)	::Hello::Log::GetCoreLogger()->critical(__VA_ARGS__)
 
 // Client log macros
 #define HO_TRACE(...)		::Hello::Log::GetClientLogger()->trace(__VA_ARGS__)
 #define HO_INFO(...)		::Hello::Log::GetClientLogger()->info(__VA_ARGS__)
 #define HO_WARN(...)		::Hello::Log::GetClientLogger()->warn(__VA_ARGS__)
 #define HO_ERROR(...)		::Hello::Log::GetClientLogger()->error(__VA_ARGS__)
+#define HO_CRITICAL(...)	::Hello::Log::GetClientLogger()->critical(__VA_ARGS__)

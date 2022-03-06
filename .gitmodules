@@ -1,3 +1,6 @@
 [submodule "hello-game-engine/vendor/spdlog"]
 	path = hello-game-engine/vendor/spdlog
 	url = git@github.com:gabime/spdlog.git
+[submodule "hello-game-engine/vendor/glfw"]
+	path = hello-game-engine/vendor/glfw
+	url = git@github.com:TheCherno/glfw.git

@@ -11,4 +11,12 @@
 	#error Hello game engine only supports Windows!
 #endif
 
+#ifdef HO_ENABLED_ASSERTS
+	#define HO_CORE_ASSERT(x, ...) { if (!(x)) {HO_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); }}
+	#define HO_ASSERT(x, ...) { if (!(x)) {HO_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); }}
+#else
+	#define HO_CORE_ASSERT(x, ...)
+	#define HO_ASSERT(x, ...)
+#endif
+
 #define BIT(x) (1 << x)

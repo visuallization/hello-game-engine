@@ -9,6 +9,13 @@ workspace "hello-game-engine"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+IncludeDir = {}
+IncludeDir["root"] = "hello-game-engine/src"
+IncludeDir["spdlog"] = "hello-game-engine/vendor/spdlog/include"
+IncludeDir["glfw"] = "hello-game-engine/vendor/glfw/include"
+
+include "hello-game-engine/vendor/glfw"
+
 project "hello-game-engine"
 	location "hello-game-engine"
 	kind "SharedLib"
@@ -26,8 +33,14 @@ project "hello-game-engine"
 	}
 
 	includedirs {
-		"%{prj.name}/src",
-		"%{prj.name}/vendor/spdlog/include"
+		"%{IncludeDir.root}",
+		"%{IncludeDir.spdlog}",
+		"%{IncludeDir.glfw}"
+	}
+
+	links {
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"

@@ -33,6 +33,7 @@ namespace Hello {
 			unsigned int Width;
 			unsigned int Height;
 			bool VSync;
+
 			EventCallbackFn EventCallback;
 		};
 

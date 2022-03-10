@@ -59,14 +59,17 @@ project "hello-game-engine"
 
 	filter "configurations:Debug"
 		defines "HO_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "HO_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "HO_DIST"
+		buildoptions "/MD"
 		optimize "On"
 
 project "sandbox"
@@ -102,12 +105,15 @@ project "sandbox"
 
 	filter "configurations:Debug"
 		defines "HO_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "HO_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "HO_DIST"
+		buildoptions "/MD"
 		optimize "On"

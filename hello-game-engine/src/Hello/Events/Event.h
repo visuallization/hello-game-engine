@@ -26,6 +26,7 @@ namespace Hello {
 		EventCategoryMouseButton	= BIT(4)
 	};
 
+// define event type macros with the use of token-pasting operator (##) and stringify operator (#)
 #define EVENT_CLASS_TYPE(type) static EventType GetStaticType() { return EventType::##type; }\
 								virtual EventType GetEventType() const override { return GetStaticType(); }\
 								virtual const char* GetName() const override { return #type; }
@@ -35,14 +36,14 @@ namespace Hello {
 	class HELLO_API Event {
 		friend class EventDispatcher;
 	public:
+		bool Handled = false;
+
 		virtual EventType GetEventType() const = 0;
 		virtual const char* GetName() const = 0;
 		virtual int GetCategoryFlags() const = 0;
 		virtual std::string ToString() const { return GetName();  }
 
 		inline bool IsInCategory(EventCategory category) { return GetCategoryFlags() & category; }
-	protected:
-		bool m_Handled = false;
 	};
 
 	class EventDispatcher {
@@ -56,8 +57,7 @@ namespace Hello {
 		template<typename T>
 		bool Dispatch(EventFn<T> func) {
 			if (m_Event.GetEventType() == T::GetStaticType()) {
-				// TODO: Find out what is going on here
-				m_Event.m_Handled = func(*(T*)&m_Event);
+				m_Event.Handled = func(*(T*)&m_Event);
 				return true;
 			}
 			return false;

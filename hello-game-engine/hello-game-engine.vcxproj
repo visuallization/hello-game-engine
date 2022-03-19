@@ -152,6 +152,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Hello\Layer.h" />
     <ClInclude Include="src\Hello.h" />
     <ClInclude Include="src\Hello\Application.h" />
     <ClInclude Include="src\Hello\Core.h" />
@@ -160,13 +161,16 @@
     <ClInclude Include="src\Hello\Events\Event.h" />
     <ClInclude Include="src\Hello\Events\KeyEvent.h" />
     <ClInclude Include="src\Hello\Events\MouseEvent.h" />
+    <ClInclude Include="src\Hello\LayerStack.h" />
     <ClInclude Include="src\Hello\Log.h" />
     <ClInclude Include="src\Hello\Window.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\hopch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Hello\Layer.cpp" />
     <ClCompile Include="src\Hello\Application.cpp" />
+    <ClCompile Include="src\Hello\LayerStack.cpp" />
     <ClCompile Include="src\Hello\Log.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\hopch.cpp">

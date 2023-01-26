@@ -2,7 +2,7 @@
 
 #include "Hello/Window.h"
 
-struct GLFWwindow;
+#include <GLFW/glfw3.h>
 
 namespace Hello {
 

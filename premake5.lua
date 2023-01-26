@@ -54,7 +54,8 @@ project "hello-game-engine"
 
 		defines {
 			"HO_PLATFORM_WINDOWS",
-			"HO_BUILD_DLL"
+			"HO_BUILD_DLL",
+			"GLFW_INCLUDE_NONE"
 		}
 		
 		postbuildcommands {

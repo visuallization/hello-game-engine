@@ -4,3 +4,6 @@
 [submodule "hello-game-engine/vendor/glfw"]
 	path = hello-game-engine/vendor/glfw
 	url = git@github.com:TheCherno/glfw.git
+[submodule "hello-game-engine/vendor/imgui"]
+	path = hello-game-engine/vendor/imgui
+	url = git@github.com:visuallization/imgui.git

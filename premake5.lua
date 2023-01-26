@@ -14,7 +14,7 @@ IncludeDir["root"] = "hello-game-engine/src"
 IncludeDir["spdlog"] = "hello-game-engine/vendor/spdlog/include"
 IncludeDir["glfw"] = "hello-game-engine/vendor/glfw/include"
 IncludeDir["glad"] = "hello-game-engine/vendor/glad/include"
-IncludeDir["imgui"] = "hello-game-engine/vendor/imgui/include"
+IncludeDir["imgui"] = "hello-game-engine/vendor/imgui"
 
 include "hello-game-engine/vendor/glfw"
 include "hello-game-engine/vendor/glad"

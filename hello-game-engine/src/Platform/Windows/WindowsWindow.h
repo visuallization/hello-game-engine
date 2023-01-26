@@ -1,9 +1,8 @@
 #pragma once
 
-#include <GLFW/glfw3.h>
-
 #include "Hello/Window.h"
 
+struct GLFWwindow;
 
 namespace Hello {
 

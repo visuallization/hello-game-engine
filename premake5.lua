@@ -13,8 +13,10 @@ IncludeDir = {}
 IncludeDir["root"] = "hello-game-engine/src"
 IncludeDir["spdlog"] = "hello-game-engine/vendor/spdlog/include"
 IncludeDir["glfw"] = "hello-game-engine/vendor/glfw/include"
+IncludeDir["glad"] = "hello-game-engine/vendor/glad/include"
 
 include "hello-game-engine/vendor/glfw"
+include "hello-game-engine/vendor/glad"
 
 project "hello-game-engine"
 	location "hello-game-engine"
@@ -35,11 +37,13 @@ project "hello-game-engine"
 	includedirs {
 		"%{IncludeDir.root}",
 		"%{IncludeDir.spdlog}",
-		"%{IncludeDir.glfw}"
+		"%{IncludeDir.glfw}",
+		"%{IncludeDir.glad}"
 	}
 
 	links {
 		"GLFW",
+		"Glad",	
 		"opengl32.lib"
 	}
 

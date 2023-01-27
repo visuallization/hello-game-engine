@@ -2,9 +2,10 @@
 
 #include "ImGuiLayer.h"
 
+#include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
-#include "imgui.h"
+#include <imgui.h>
 
 #include "Hello/Application.h"
 #include "Platform/OpenGL/ImGuiOpenGLRenderer.h"
@@ -124,21 +125,42 @@ namespace Hello {
 
 	bool ImGuiLayer::OnKeyPressedEvent(KeyPressedEvent& event)
 	{
+		ImGuiIO& io = ImGui::GetIO();
+		io.KeysDown[event.GetKeyCode()] = true;
+
+		io.KeyCtrl = io.KeysDown[GLFW_KEY_LEFT_CONTROL] || io.KeysDown[GLFW_KEY_RIGHT_CONTROL];
+		io.KeyAlt = io.KeysDown[GLFW_KEY_LEFT_ALT] || io.KeysDown[GLFW_KEY_RIGHT_ALT];
+		io.KeyShift = io.KeysDown[GLFW_KEY_LEFT_SHIFT] || io.KeysDown[GLFW_KEY_RIGHT_SHIFT];
+		io.KeySuper = io.KeysDown[GLFW_KEY_LEFT_SUPER] || io.KeysDown[GLFW_KEY_RIGHT_SUPER];
+
+
 		return false;
 	}
 
 	bool ImGuiLayer::OnKeyReleasedEvent(KeyReleasedEvent& event)
 	{
+		ImGuiIO& io = ImGui::GetIO();
+		io.KeysDown[event.GetKeyCode()] = false;
+
 		return false;
 	}
 
 	bool ImGuiLayer::OnKeyTypedEvent(KeyTypedEvent& event)
 	{
+		ImGuiIO& io = ImGui::GetIO();
+		io.AddInputCharacter(event.GetKeyCode());
 		return false;
 	}
 
 	bool ImGuiLayer::OnWindowResizeEvent(WindowResizeEvent& event)
 	{
+		ImGuiIO& io = ImGui::GetIO();
+		io.DisplaySize = ImVec2(event.GetWidth(), event.GetHeight());
+		io.DisplayFramebufferScale = ImVec2(1.0f, 1.0f);
+
+		// TODO: Remove this in the future
+		glViewport(0, 0, event.GetWidth(), event.GetHeight());
+
 		return false;
 	}
 

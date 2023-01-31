@@ -7,6 +7,8 @@ workspace "hello-game-engine"
 		"Dist"
 	}
 
+	startproject "sandbox"
+
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 IncludeDir = {}
@@ -20,10 +22,12 @@ include "hello-game-engine/vendor/glfw"
 include "hello-game-engine/vendor/glad"
 include "hello-game-engine/vendor/imgui"
 
+
 project "hello-game-engine"
 	location "hello-game-engine"
 	kind "SharedLib"
 	language "C++"
+	staticruntime "off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -53,7 +57,6 @@ project "hello-game-engine"
 
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "On"
 		systemversion "latest"
 
 		defines {
@@ -68,23 +71,24 @@ project "hello-game-engine"
 
 	filter "configurations:Debug"
 		defines "HO_DEBUG"
-		buildoptions "/MDd"
+		runtime "Debug"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "HO_RELEASE"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "HO_DIST"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
 
 project "sandbox"
 	location "sandbox"
 	kind "ConsoleApp"
 	language "C++"
+	staticruntime "off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -105,7 +109,6 @@ project "sandbox"
 
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "On"
 		systemversion "latest"
 
 		defines {
@@ -114,15 +117,15 @@ project "sandbox"
 
 	filter "configurations:Debug"
 		defines "HO_DEBUG"
-		buildoptions "/MDd"
+		runtime "Debug"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "HO_RELEASE"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "HO_DIST"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"

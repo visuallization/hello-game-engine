@@ -11,6 +11,10 @@
 	#error Hello game engine only supports Windows!
 #endif
 
+#ifdef HO_DEBUG
+	#define HO_ENABLED_ASSERTS
+#endif
+
 #ifdef HO_ENABLED_ASSERTS
 	#define HO_CORE_ASSERT(x, ...) { if (!(x)) {HO_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); }}
 	#define HO_ASSERT(x, ...) { if (!(x)) {HO_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); }}

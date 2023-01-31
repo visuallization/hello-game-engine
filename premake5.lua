@@ -18,10 +18,12 @@ IncludeDir["glfw"] = "hello-game-engine/vendor/glfw/include"
 IncludeDir["glad"] = "hello-game-engine/vendor/glad/include"
 IncludeDir["imgui"] = "hello-game-engine/vendor/imgui"
 
-include "hello-game-engine/vendor/glfw"
-include "hello-game-engine/vendor/glad"
-include "hello-game-engine/vendor/imgui"
+group "Dependenices"
+	include "hello-game-engine/vendor/glfw"
+	include "hello-game-engine/vendor/glad"
+	include "hello-game-engine/vendor/imgui"
 
+group ""
 
 project "hello-game-engine"
 	location "hello-game-engine"
@@ -66,7 +68,7 @@ project "hello-game-engine"
 		}
 		
 		postbuildcommands {
-			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/sandbox")
+			("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/sandbox/\"")
 		}
 
 	filter "configurations:Debug"

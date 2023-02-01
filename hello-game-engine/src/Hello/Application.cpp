@@ -32,7 +32,7 @@ namespace Hello {
 	}
 
 	void Application::OnEvent(Event& e) {
-		HO_CORE_TRACE("{0}", e);
+		//HO_CORE_TRACE("{0}", e);
 
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClose));
@@ -53,8 +53,6 @@ namespace Hello {
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();
 
-			auto [x, y] = Input::GetMousePosition();
-			HO_CORE_TRACE("{0}, {1}", x, y);
 			m_Window->OnUpdate();
 		}
 	}

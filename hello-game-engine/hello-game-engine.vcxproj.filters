@@ -74,6 +74,8 @@
       <Filter>Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\hopch.h" />
+    <ClInclude Include="src\Hello\KeyCodes.h" />
+    <ClInclude Include="src\Hello\MouseButtonCodes.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Hello\Application.cpp">

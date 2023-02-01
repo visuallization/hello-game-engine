@@ -5,11 +5,13 @@ public:
 	ExampleLayer() : Layer("Example") {}
 
 	void OnUpdate() override {
-		HO_INFO("ExampleLayer::Update");
+		if (Hello::Input::GetKeyPressed(HO_KEY_TAB)) {
+			HO_TRACE("Tab key is pressed!");
+		}
 	}
 
 	void OnEvent(Hello::Event& event) override {
-		HO_TRACE("{0}", event);
+		//HO_TRACE("{0}", event);
 	}
 };
 

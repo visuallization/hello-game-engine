@@ -17,6 +17,7 @@ IncludeDir["spdlog"] = "hello-game-engine/vendor/spdlog/include"
 IncludeDir["glfw"] = "hello-game-engine/vendor/glfw/include"
 IncludeDir["glad"] = "hello-game-engine/vendor/glad/include"
 IncludeDir["imgui"] = "hello-game-engine/vendor/imgui"
+IncludeDir["glm"] = "hello-game-engine/vendor/glm"
 
 group "Dependenices"
 	include "hello-game-engine/vendor/glfw"
@@ -47,7 +48,8 @@ project "hello-game-engine"
 		"%{IncludeDir.spdlog}",
 		"%{IncludeDir.glfw}",
 		"%{IncludeDir.glad}",
-		"%{IncludeDir.imgui}"
+		"%{IncludeDir.imgui}",
+		"%{IncludeDir.glm}"
 	}
 
 	links {
@@ -101,8 +103,9 @@ project "sandbox"
 	}
 
 	includedirs {
-		"hello-game-engine/vendor/spdlog/include",
-		"hello-game-engine/src"
+		"%{IncludeDir.root}",
+		"%{IncludeDir.spdlog}",
+		"%{IncludeDir.glm}"
 	}
 
 	links {

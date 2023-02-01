@@ -7,3 +7,6 @@
 [submodule "hello-game-engine/vendor/imgui"]
 	path = hello-game-engine/vendor/imgui
 	url = git@github.com:visuallization/imgui.git
+[submodule "hello-game-engine/vendor/glm"]
+	path = hello-game-engine/vendor/glm
+	url = git@github.com:g-truc/glm.git

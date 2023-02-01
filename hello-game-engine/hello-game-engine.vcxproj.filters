@@ -49,6 +49,9 @@
     <ClInclude Include="src\Hello\Input.h">
       <Filter>Hello</Filter>
     </ClInclude>
+    <ClInclude Include="src\Hello\KeyCodes.h">
+      <Filter>Hello</Filter>
+    </ClInclude>
     <ClInclude Include="src\Hello\Layer.h">
       <Filter>Hello</Filter>
     </ClInclude>
@@ -56,6 +59,9 @@
       <Filter>Hello</Filter>
     </ClInclude>
     <ClInclude Include="src\Hello\Log.h">
+      <Filter>Hello</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hello\MouseButtonCodes.h">
       <Filter>Hello</Filter>
     </ClInclude>
     <ClInclude Include="src\Hello\Window.h">
@@ -74,8 +80,6 @@
       <Filter>Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\hopch.h" />
-    <ClInclude Include="src\Hello\KeyCodes.h" />
-    <ClInclude Include="src\Hello\MouseButtonCodes.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Hello\Application.cpp">

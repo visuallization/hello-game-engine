@@ -6,12 +6,18 @@ public:
 
 	void OnUpdate() override {
 		if (Hello::Input::GetKeyPressed(HO_KEY_TAB)) {
-			HO_TRACE("Tab key is pressed!");
+			HO_TRACE("Tab key is pressed! (poll)");
 		}
 	}
 
 	void OnEvent(Hello::Event& event) override {
-		//HO_TRACE("{0}", event);
+		if (event.GetEventType() == Hello::EventType::KeyPressed) {
+			Hello::KeyPressedEvent& e = (Hello::KeyPressedEvent&)event;
+			if (e.GetKeyCode() == HO_KEY_TAB) {
+				HO_TRACE("Tab key is pressed! (event)");
+			}
+			HO_TRACE("{0}", (char)e.GetKeyCode());
+		}
 	}
 };
 

@@ -1,4 +1,4 @@
-workspace "hello-game-engine"
+workspace "hello"
 	architecture "x64"
 
 	configurations {
@@ -12,22 +12,22 @@ workspace "hello-game-engine"
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 IncludeDir = {}
-IncludeDir["root"] = "hello-game-engine/src"
-IncludeDir["spdlog"] = "hello-game-engine/vendor/spdlog/include"
-IncludeDir["glfw"] = "hello-game-engine/vendor/glfw/include"
-IncludeDir["glad"] = "hello-game-engine/vendor/glad/include"
-IncludeDir["imgui"] = "hello-game-engine/vendor/imgui"
-IncludeDir["glm"] = "hello-game-engine/vendor/glm"
+IncludeDir["root"] = "engine/src"
+IncludeDir["spdlog"] = "engine/vendor/spdlog/include"
+IncludeDir["glfw"] = "engine/vendor/glfw/include"
+IncludeDir["glad"] = "engine/vendor/glad/include"
+IncludeDir["imgui"] = "engine/vendor/imgui"
+IncludeDir["glm"] = "engine/vendor/glm"
 
 group "Dependenices"
-	include "hello-game-engine/vendor/glfw"
-	include "hello-game-engine/vendor/glad"
-	include "hello-game-engine/vendor/imgui"
+	include "engine/vendor/glfw"
+	include "engine/vendor/glad"
+	include "engine/vendor/imgui"
 
 group ""
 
-project "hello-game-engine"
-	location "hello-game-engine"
+project "engine"
+	location "engine"
 	kind "SharedLib"
 	language "C++"
 	staticruntime "off"
@@ -36,7 +36,7 @@ project "hello-game-engine"
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
 	pchheader "hopch.h"
-	pchsource "hello-game-engine/src/hopch.cpp"
+	pchsource "engine/src/hopch.cpp"
 
 	files {
 		"%{prj.name}/src/**.h",
@@ -109,7 +109,7 @@ project "sandbox"
 	}
 
 	links {
-		"hello-game-engine"
+		"engine"
 	}
 
 	filter "system:windows"

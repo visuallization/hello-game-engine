@@ -1,12 +1,12 @@
-[submodule "hello-game-engine/vendor/spdlog"]
-	path = hello-game-engine/vendor/spdlog
+[submodule "engine/vendor/spdlog"]
+	path = engine/vendor/spdlog
 	url = git@github.com:gabime/spdlog.git
-[submodule "hello-game-engine/vendor/glfw"]
-	path = hello-game-engine/vendor/glfw
+[submodule "engine/vendor/glfw"]
+	path = engine/vendor/glfw
 	url = git@github.com:TheCherno/glfw.git
-[submodule "hello-game-engine/vendor/imgui"]
-	path = hello-game-engine/vendor/imgui
+[submodule "engine/vendor/imgui"]
+	path = engine/vendor/imgui
 	url = git@github.com:visuallization/imgui.git
-[submodule "hello-game-engine/vendor/glm"]
-	path = hello-game-engine/vendor/glm
+[submodule "engine/vendor/glm"]
+	path = engine/vendor/glm
 	url = git@github.com:g-truc/glm.git

@@ -26,7 +26,6 @@ class Sandbox : public Hello::Application {
 public:
 	Sandbox() {
 		PushLayer(new ExampleLayer());
-		PushOverlay(new Hello::ImGuiLayer());
 	}
 
 	~Sandbox() {

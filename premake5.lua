@@ -105,7 +105,8 @@ project "sandbox"
 	includedirs {
 		"%{IncludeDir.root}",
 		"%{IncludeDir.spdlog}",
-		"%{IncludeDir.glm}"
+		"%{IncludeDir.glm}",
+		"%{IncludeDir.imgui}"
 	}
 
 	links {

@@ -6,6 +6,7 @@
 #include "Hello/LayerStack.h"
 #include "Hello/Events/Event.h"
 #include "Hello/Events/ApplicationEvent.h"
+#include "Hello/ImGui/ImGuiLayer.h"
 
 namespace Hello {
 
@@ -27,6 +28,8 @@ namespace Hello {
 		bool OnWindowClose(WindowCloseEvent& e);
 
 		std::unique_ptr<Window> m_Window;
+		ImGuiLayer* m_ImGuiLayer;
+
 		bool m_Running = true;
 		LayerStack m_LayerStack;
 

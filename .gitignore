@@ -398,8 +398,11 @@ FodyWeavers.xsd
 # JetBrains Rider
 *.sln.iml
 
-# Include
-!vendor/bin/premake
-
 # imgui
 imgui.ini
+
+# clangd
+compile_commands.json
+
+# Include
+!vendor/bin/premake

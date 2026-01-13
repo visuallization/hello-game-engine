@@ -161,3 +161,23 @@ project "sandbox"
 		defines "HO_DIST"
 		runtime "Release"
 		optimize "On"
+-- Custom action to generate compile_commands.json (macOS only)
+newaction {
+	trigger = "compile_commands",
+	description = "Generate compile_commands.json using bear (macOS only)",
+	execute = function()
+		local host = os.host()
+		if host == "macosx" then
+			os.execute("rm -f compile_commands.json")
+			-- Clean first to ensure all files are compiled
+			os.execute("make clean")
+			-- Generate compile_commands.json with bear
+			os.execute("bear -- make config=debug")
+			print("✓ compile_commands.json generated")
+		else
+			print("Error: compile_commands.json generation is only supported on macOS")
+			print("Current host: " .. host)
+			print("Please use bear manually on other platforms")
+		end
+	end
+}

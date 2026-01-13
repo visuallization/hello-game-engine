@@ -48,30 +48,30 @@ ifeq ($(config),debug)
 TARGETDIR = ../bin/Debug-macosx-x86_64/engine
 TARGET = $(TARGETDIR)/libengine.dylib
 OBJDIR = ../bin-int/Debug-macosx-x86_64/engine
-DEFINES += -DHO_DEBUG
+DEFINES += -DHO_PLATFORM_MAC -DHO_BUILD_DLL -DGLFW_INCLUDE_NONE -DHO_DEBUG
 ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) -m64 -fPIC -g
-ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -m64 -fPIC -g
-LIBS += vendor/glfw/bin/Debug-macosx-x86_64/GLFW/libGLFW.a vendor/glad/bin/Debug-macosx-x86_64/Glad/libGlad.a vendor/imgui/bin/Debug-macosx-x86_64/ImGui/libImGui.a -lopengl32.lib
+ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -m64 -fPIC -g -std=c++17
+LIBS += vendor/glfw/bin/Debug-macosx-x86_64/GLFW/libGLFW.a vendor/glad/bin/Debug-macosx-x86_64/Glad/libGlad.a vendor/imgui/bin/Debug-macosx-x86_64/ImGui/libImGui.a -framework OpenGL -framework Cocoa -framework IOKit -framework CoreVideo
 LDDEPS += vendor/glfw/bin/Debug-macosx-x86_64/GLFW/libGLFW.a vendor/glad/bin/Debug-macosx-x86_64/Glad/libGlad.a vendor/imgui/bin/Debug-macosx-x86_64/ImGui/libImGui.a
 
 else ifeq ($(config),release)
 TARGETDIR = ../bin/Release-macosx-x86_64/engine
 TARGET = $(TARGETDIR)/libengine.dylib
 OBJDIR = ../bin-int/Release-macosx-x86_64/engine
-DEFINES += -DHO_RELEASE
+DEFINES += -DHO_PLATFORM_MAC -DHO_BUILD_DLL -DGLFW_INCLUDE_NONE -DHO_RELEASE
 ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) -m64 -O2 -fPIC
-ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -m64 -O2 -fPIC
-LIBS += vendor/glfw/bin/Release-macosx-x86_64/GLFW/libGLFW.a vendor/glad/bin/Release-macosx-x86_64/Glad/libGlad.a vendor/imgui/bin/Release-macosx-x86_64/ImGui/libImGui.a -lopengl32.lib
+ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -m64 -O2 -fPIC -std=c++17
+LIBS += vendor/glfw/bin/Release-macosx-x86_64/GLFW/libGLFW.a vendor/glad/bin/Release-macosx-x86_64/Glad/libGlad.a vendor/imgui/bin/Release-macosx-x86_64/ImGui/libImGui.a -framework OpenGL -framework Cocoa -framework IOKit -framework CoreVideo
 LDDEPS += vendor/glfw/bin/Release-macosx-x86_64/GLFW/libGLFW.a vendor/glad/bin/Release-macosx-x86_64/Glad/libGlad.a vendor/imgui/bin/Release-macosx-x86_64/ImGui/libImGui.a
 
 else ifeq ($(config),dist)
 TARGETDIR = ../bin/Dist-macosx-x86_64/engine
 TARGET = $(TARGETDIR)/libengine.dylib
 OBJDIR = ../bin-int/Dist-macosx-x86_64/engine
-DEFINES += -DHO_DIST
+DEFINES += -DHO_PLATFORM_MAC -DHO_BUILD_DLL -DGLFW_INCLUDE_NONE -DHO_DIST
 ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) -m64 -O2 -fPIC
-ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -m64 -O2 -fPIC
-LIBS += vendor/glfw/bin/Dist-macosx-x86_64/GLFW/libGLFW.a vendor/glad/bin/Dist-macosx-x86_64/Glad/libGlad.a vendor/imgui/bin/Dist-macosx-x86_64/ImGui/libImGui.a -lopengl32.lib
+ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -m64 -O2 -fPIC -std=c++17
+LIBS += vendor/glfw/bin/Dist-macosx-x86_64/GLFW/libGLFW.a vendor/glad/bin/Dist-macosx-x86_64/Glad/libGlad.a vendor/imgui/bin/Dist-macosx-x86_64/ImGui/libImGui.a -framework OpenGL -framework Cocoa -framework IOKit -framework CoreVideo
 LDDEPS += vendor/glfw/bin/Dist-macosx-x86_64/GLFW/libGLFW.a vendor/glad/bin/Dist-macosx-x86_64/Glad/libGlad.a vendor/imgui/bin/Dist-macosx-x86_64/ImGui/libImGui.a
 
 endif

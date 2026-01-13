@@ -1,6 +1,6 @@
 #pragma once
 
-#ifdef HO_PLATFORM_WINDOWS
+#if defined(HO_PLATFORM_WINDOWS) || defined(HO_PLATFORM_MAC)
 
 extern Hello::Application* Hello::CreateApplication();
 

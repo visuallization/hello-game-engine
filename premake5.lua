@@ -55,8 +55,7 @@ project "engine"
 	links {
 		"GLFW",
 		"Glad",
-		"ImGui",
-		"opengl32.lib"
+		"ImGui"
 	}
 
 	filter "system:windows"
@@ -69,8 +68,28 @@ project "engine"
 			"GLFW_INCLUDE_NONE"
 		}
 		
+		links {
+			"opengl32.lib"
+		}
+		
 		postbuildcommands {
 			("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/sandbox/\"")
+		}
+
+	filter "system:macosx"
+		cppdialect "C++17"
+
+		defines {
+			"HO_PLATFORM_MAC",
+			"HO_BUILD_DLL",
+			"GLFW_INCLUDE_NONE"
+		}
+
+		links {
+			"OpenGL.framework",
+			"Cocoa.framework",
+			"IOKit.framework",
+			"CoreVideo.framework"
 		}
 
 	filter "configurations:Debug"
@@ -119,6 +138,13 @@ project "sandbox"
 
 		defines {
 			"HO_PLATFORM_WINDOWS"
+		}
+
+	filter "system:macosx"
+		cppdialect "C++17"
+
+		defines {
+			"HO_PLATFORM_MAC"
 		}
 
 	filter "configurations:Debug"

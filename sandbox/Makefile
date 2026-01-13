@@ -45,9 +45,9 @@ ifeq ($(config),debug)
 TARGETDIR = ../bin/Debug-macosx-x86_64/sandbox
 TARGET = $(TARGETDIR)/sandbox
 OBJDIR = ../bin-int/Debug-macosx-x86_64/sandbox
-DEFINES += -DHO_DEBUG
+DEFINES += -DHO_PLATFORM_MAC -DHO_DEBUG
 ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) -m64 -g
-ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -m64 -g
+ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -m64 -g -std=c++17
 LIBS += ../bin/Debug-macosx-x86_64/engine/libengine.dylib
 LDDEPS += ../bin/Debug-macosx-x86_64/engine/libengine.dylib
 
@@ -55,9 +55,9 @@ else ifeq ($(config),release)
 TARGETDIR = ../bin/Release-macosx-x86_64/sandbox
 TARGET = $(TARGETDIR)/sandbox
 OBJDIR = ../bin-int/Release-macosx-x86_64/sandbox
-DEFINES += -DHO_RELEASE
+DEFINES += -DHO_PLATFORM_MAC -DHO_RELEASE
 ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) -m64 -O2
-ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -m64 -O2
+ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -m64 -O2 -std=c++17
 LIBS += ../bin/Release-macosx-x86_64/engine/libengine.dylib
 LDDEPS += ../bin/Release-macosx-x86_64/engine/libengine.dylib
 
@@ -65,9 +65,9 @@ else ifeq ($(config),dist)
 TARGETDIR = ../bin/Dist-macosx-x86_64/sandbox
 TARGET = $(TARGETDIR)/sandbox
 OBJDIR = ../bin-int/Dist-macosx-x86_64/sandbox
-DEFINES += -DHO_DIST
+DEFINES += -DHO_PLATFORM_MAC -DHO_DIST
 ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) -m64 -O2
-ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -m64 -O2
+ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -m64 -O2 -std=c++17
 LIBS += ../bin/Dist-macosx-x86_64/engine/libengine.dylib
 LDDEPS += ../bin/Dist-macosx-x86_64/engine/libengine.dylib
 

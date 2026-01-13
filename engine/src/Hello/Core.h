@@ -7,8 +7,10 @@
 	#else
 		#define HELLO_API __declspec(dllimport)
 	#endif
+#elif defined(HO_PLATFORM_MAC)
+	#define HELLO_API __attribute__((visibility("default")))
 #else
-	#error Hello game engine only supports Windows!
+	#error Hello game engine only supports Windows and Mac!
 #endif
 
 #ifdef HO_DEBUG
@@ -16,8 +18,14 @@
 #endif
 
 #ifdef HO_ENABLED_ASSERTS
-	#define HO_CORE_ASSERT(x, ...) { if (!(x)) {HO_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); }}
-	#define HO_ASSERT(x, ...) { if (!(x)) {HO_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); }}
+	#ifdef HO_PLATFORM_WINDOWS
+		#define HO_CORE_ASSERT(x, ...) { if (!(x)) {HO_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); }}
+		#define HO_ASSERT(x, ...) { if (!(x)) {HO_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); }}
+	#elif defined(HO_PLATFORM_MAC)
+		#include <signal.h>
+		#define HO_CORE_ASSERT(x, ...) { if (!(x)) {HO_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); raise(SIGTRAP); }}
+		#define HO_ASSERT(x, ...) { if (!(x)) {HO_ERROR("Assertion Failed: {0}", __VA_ARGS__); raise(SIGTRAP); }}
+	#endif
 #else
 	#define HO_CORE_ASSERT(x, ...)
 	#define HO_ASSERT(x, ...)

@@ -400,3 +400,6 @@ FodyWeavers.xsd
 
 # Include
 !vendor/bin/premake
+
+# imgui
+imgui.ini

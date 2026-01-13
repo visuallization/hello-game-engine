@@ -51,7 +51,11 @@ namespace Hello {
 
 		// Setup Platform/Renderer backends
 		ImGui_ImplGlfw_InitForOpenGL(window, true);
-		ImGui_ImplOpenGL3_Init("#version 410");
+		#ifdef HO_PLATFORM_MAC
+			ImGui_ImplOpenGL3_Init("#version 150");
+		#else
+			ImGui_ImplOpenGL3_Init("#version 410");
+		#endif
 	}
 
 	void ImGuiLayer::OnDetach() {
